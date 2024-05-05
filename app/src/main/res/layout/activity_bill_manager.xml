@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/main"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <com.example.appktx2sv.ui.components.Selector
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/semesterSelector"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <com.example.appktx2sv.ui.components.Selector
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/billStatus"
+                    android:layout_marginBottom="10dp"
+                    />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Find bill by id"
+                android:id="@+id/findBill"
+                android:background="@drawable/bg_rounded_blue"
+                android:textColor="@color/white"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginBottom="20dp"
+                />
+
+        </LinearLayout>
+
+
+        <com.example.appktx2sv.ui.view.MyListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/myListView"
+            android:background="@drawable/bg_rounded_white"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
