@@ -43,6 +43,7 @@ public class LoginHandler implements IPDM.Handler {
                     String token = response.body().getToken();
                     // Gán token vào request retrofit
                     AppKtx.OnLoginSuccess(token);
+
                     /*Chuyển đến trang home*/
                     Intent homeIntent = new Intent(view, ActivityHome.class);
                     view.startActivity(homeIntent);
