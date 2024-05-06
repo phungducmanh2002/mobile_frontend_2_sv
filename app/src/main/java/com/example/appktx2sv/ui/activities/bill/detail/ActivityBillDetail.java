@@ -12,10 +12,12 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.appktx2sv.R;
 import com.example.appktx2sv.data.dto.BillDto;
 import com.example.appktx2sv.databinding.ActivityBillDetailBinding;
 import com.example.appktx2sv.ui.dialog.MyDialog;
@@ -131,7 +133,7 @@ public class ActivityBillDetail extends AppCompatActivity {
         binding.dateNow.setText(DateUtils.Date2String(new Date()));
         // set trạng thái
         binding.status.setText(billDto.getStatus() ? "Đã thanh toán" : "Chưa thanh toán");
-
+        binding.status.setTextColor(billDto.getStatus() ? ContextCompat.getColor(this, R.color.green) : ContextCompat.getColor(this, R.color.red));
         // Nếu bill đã thanh toán
         if(billDto.getStatus()){
             binding.payTimeWrapper.setVisibility(View.VISIBLE);
