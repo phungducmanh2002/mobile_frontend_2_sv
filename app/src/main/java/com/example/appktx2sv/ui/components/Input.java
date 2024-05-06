@@ -2,8 +2,10 @@ package com.example.appktx2sv.ui.components;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
@@ -12,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.example.appktx2sv.R;
 import com.example.appktx2sv.databinding.ComponentInputBinding;
+import com.example.appktx2sv.interfaces.ICallBack;
 
 public class Input extends LinearLayout {
     public ComponentInputBinding binding;
@@ -20,12 +23,10 @@ public class Input extends LinearLayout {
         super(context);
         init(context, null);
     }
-
     public Input(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
-
     public Input(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
@@ -140,5 +141,26 @@ public class Input extends LinearLayout {
     }
     public String getText(){
         return this.binding.input.getText().toString();
+    }
+    public void requestForcus(){
+        binding.input.requestFocus();
+    }
+    public void setAfterTextChanged(ICallBack callback){
+        binding.input.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                callback.action(null);
+            }
+        });
     }
 }

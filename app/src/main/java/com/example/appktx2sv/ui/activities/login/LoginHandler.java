@@ -9,6 +9,7 @@ import com.example.appktx2sv.data.model.Account;
 import com.example.appktx2sv.interfaces.IPDM;
 import com.example.appktx2sv.net.RetrofitClient;
 import com.example.appktx2sv.net.services.ILoginService;
+import com.example.appktx2sv.ui.activities.activeAccount.ActivityActiveAccount;
 import com.example.appktx2sv.ui.activities.home.ActivityHome;
 
 import retrofit2.Call;
@@ -30,6 +31,15 @@ public class LoginHandler implements IPDM.Handler {
             @Override
             public void onResponse(Call<LoginResDto> call, Response<LoginResDto> response) {
                 if(response.isSuccessful()){
+                    
+                    if(response.body() == null){
+                        Intent activeAccountIntent = new Intent(view, ActivityActiveAccount.class);
+                        activeAccountIntent.putExtra("email", account.getEmail());
+                        activeAccountIntent.putExtra("password", account.getPassword());
+                        view.startActivity(activeAccountIntent);
+                        return;
+                    }
+                    
                     String token = response.body().getToken();
                     // Gán token vào request retrofit
                     AppKtx.OnLoginSuccess(token);

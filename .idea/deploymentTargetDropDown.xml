@@ -5,6 +5,15 @@
       <entry key="ActivityBillManager">
         <State />
       </entry>
+      <entry key="ActivityLogin">
+        <State />
+      </entry>
+      <entry key="ActivitySignup">
+        <State />
+      </entry>
+      <entry key="MainActivity">
+        <State />
+      </entry>
       <entry key="app">
         <State />
       </entry>

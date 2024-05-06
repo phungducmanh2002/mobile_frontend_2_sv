@@ -14,4 +14,6 @@ public class UserCodeDto {
     Integer userId;
     @SerializedName("activeCode")
     String activeCode;
+    @SerializedName("email")
+    String email;
 }
