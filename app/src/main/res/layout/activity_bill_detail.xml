@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:id="@+id/main"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_trong"/>
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="20dp"
+    android:background="@drawable/bg_rounded_white_trong"
     >
 
     <LinearLayout
@@ -21,6 +25,10 @@
         android:orientation="vertical"
         android:gravity="center_horizontal|center_vertical"
         android:id="@+id/bill"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         >
 
         <TextView
@@ -98,6 +106,7 @@
                 android:layout_height="wrap_content"
                 android:text="Đã thanh toán"
                 android:id="@+id/status"
+                android:textColor="@color/green"
                 />
 
         </LinearLayout>
@@ -339,55 +348,42 @@
 
         </TableLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
             >
-
-            <LinearLayout
+            <TextView
+                android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="40dp"
-                    android:text="Ngày xuất hóa đơn: " />
+                android:layout_marginBottom="40dp"
+                android:text="Ngày xuất hóa đơn: " />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="40dp"
-                    android:text="20/10/2024"
-                    android:id="@+id/dateNow"
-                    />
-            </LinearLayout>
-
-        </RelativeLayout>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:text="20/10/2024"
+                android:id="@+id/dateNow"
+                />
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Export PDF"
+            android:background="@drawable/bg_rounded_red"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/exportPdf"
+            />
     </LinearLayout>
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Export PDF"
-        android:background="@drawable/bg_rounded_blue"
-        android:textColor="@color/white"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:id="@+id/exportPdf"
-        />
+
+
+</LinearLayout>
+
 </RelativeLayout>
-
-</LinearLayout>
-
-</LinearLayout>
