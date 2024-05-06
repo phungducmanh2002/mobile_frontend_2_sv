@@ -1,7 +1,10 @@
 package com.example.appktx2sv.ui.activities.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.appktx2sv.R;
 import com.example.appktx2sv.data.dto.UserDto;
 import com.example.appktx2sv.databinding.ActivityLoginBinding;
 import com.example.appktx2sv.interfaces.IPDM;
@@ -17,6 +21,7 @@ import com.example.appktx2sv.ui.activities.signup.ActivitySignup;
 public class ActivityLogin extends AppCompatActivity implements IPDM.View {
     ActivityLoginBinding binding;
     String email, password;
+    CheckBox chkBox;
     LoginHandler handler  = new LoginHandler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +37,20 @@ public class ActivityLogin extends AppCompatActivity implements IPDM.View {
 
         getUserDtoExtra();
         handler.setView(this);
+        setControl();
         setEvent();
     }
+
+    @Override
+    protected void onResume() {
+        docGhiNho();
+        super.onResume();
+    }
+
+    private void setControl() {
+        chkBox = findViewById(R.id.chkLuuDangNhap);
+    }
+
     private void getUserDtoExtra() {
         this.email = getIntent().getStringExtra("email");
         this.password = getIntent().getStringExtra("password");
@@ -43,12 +60,39 @@ public class ActivityLogin extends AppCompatActivity implements IPDM.View {
             binding.password.setText(this.password);
         }
     }
+
+    private void luuDangNhap(){
+        SharedPreferences sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("taiKhoan", binding.email.getText().toString());
+        editor.putString("matKhau", binding.password.getText().toString());
+        editor.apply();
+    }
+    private void xoaGhiNho(){
+        SharedPreferences sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+    }
+
+    private void docGhiNho(){
+        SharedPreferences sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
+        String tk = sharedPreferences.getString("taiKhoan", "");
+        String mk = sharedPreferences.getString("matKhau", "");
+        binding.email.setText(tk);
+        binding.password.setText(mk);
+    }
     private void setEvent() {
+
         binding.login.setOnClickListener(v -> {
                 if(checkInput()){
                     String email = binding.email.getText();
                     String password = binding.password.getText();
                     handler.login(email, password);
+                    if (chkBox.isChecked())
+                        luuDangNhap();
+                    else
+                        xoaGhiNho();
                 }
         });
 
