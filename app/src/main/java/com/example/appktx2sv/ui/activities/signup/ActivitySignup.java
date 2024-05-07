@@ -42,6 +42,7 @@ public class ActivitySignup extends AppCompatActivity implements IPDM.View {
                 userDto.setEmail(binding.inputEmail.getText());
                 userDto.setPassword(binding.inputPassword.getText());
 
+                Toast.makeText(ActivitySignup.this, userDto.toString(), Toast.LENGTH_SHORT).show();
                 handler.register(userDto);
             }
         });
