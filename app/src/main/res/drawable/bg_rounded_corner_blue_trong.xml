@@ -3,10 +3,10 @@
     android:shape="rectangle">
 
     <!-- Thiết lập màu nền cho button -->
-    <solid android:color="@color/white" /> <!-- Màu nền định sẵn -->
+    <solid android:color="@color/blue_trong" /> <!-- Màu nền định sẵn -->
     <stroke
         android:width="2dp"
         android:color="@color/blue_trong" /> <!-- Màu của border -->
-    <corners android:radius="20dp" /> <!-- Bán kính bo tròn -->
+    <corners android:bottomLeftRadius="75dp" android:bottomRightRadius="75dp" /> <!-- Bán kính bo tròn -->
 
 </shape>
