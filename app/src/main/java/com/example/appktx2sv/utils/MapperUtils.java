@@ -50,16 +50,16 @@ public class MapperUtils {
         for (BillDto billDto: billDtoList) {
 
             Map<String, String> attrs = new HashMap<>();
-            if(billDto.getIdRegis() != null){
-                attrs.put("Email: ", billDto.getEmail());
-            }
-            else if(billDto.getIdElectricWater() != null){
-                attrs.put("Time: ", billDto.getMonth().toString() + "/" + billDto.getYear().toString());
-            }
+//            if(billDto.getIdRegis() != null){
+//                attrs.put("Email: ", billDto.getEmail());
+//            }
+//            else if(billDto.getIdElectricWater() != null){
+//                attrs.put("Time: ", billDto.getMonth().toString() + "/" + billDto.getYear().toString());
+//            }
             attrs.put("Bill ID: ", billDto.getId().toString());
-            attrs.put("Room name: ", billDto.getRoomName());
+//            attrs.put("Room name: ", billDto.getRoomName());
             attrs.put("Status: ", billDto.getStatus()  ? "Paid" : "Unpaid");
-            attrs.put("Create at: ", DateUtils.Date2String(billDto.getCreatedAt()));
+//            attrs.put("Create at: ", DateUtils.Date2String(billDto.getCreatedAt()));
 
 
             ItemData itemData = new ItemData();
@@ -82,12 +82,12 @@ public class MapperUtils {
             itemData.setFields(attrs);
 
             if(billDto.getStatus()){
-                itemData.setBackgroundDrawable(context.getDrawable(R.drawable.bg_rounded_green));
-                itemData.setTextColor(context.getColor(R.color.white));
+                itemData.setBackgroundDrawable(context.getDrawable(R.drawable.bg_rounded_blue_corner));
+                itemData.setTextColor(context.getColor(R.color.black));
             }
             else{
-                itemData.setBackgroundDrawable(context.getDrawable(R.drawable.bg_rounded_red));
-                itemData.setTextColor(context.getColor(R.color.white));
+                itemData.setBackgroundDrawable(context.getDrawable(R.drawable.bg_rounded_red_corner));
+                itemData.setTextColor(context.getColor(R.color.black));
             }
 
             itemDataList.add(itemData);
@@ -184,9 +184,6 @@ public class MapperUtils {
         for (SemesterDto semesterDto: semesterDtoList) {
 
             Map<String, String> attrs = new HashMap<>();
-            attrs.put("Room price: ", NumberUtils.GetMoney(semesterDto.getRoomPrice()));
-            attrs.put("Electric price: ", NumberUtils.GetMoney(semesterDto.getElectricPrice()));
-            attrs.put("Water price: ", NumberUtils.GetMoney(semesterDto.getWaterPrice()));
             attrs.put("Start at: ", DateUtils.Date2String(semesterDto.getStartAt()));
             attrs.put("End at: ", DateUtils.Date2String(semesterDto.getEndAt()));
 
@@ -201,7 +198,7 @@ public class MapperUtils {
                     .build());
             itemData.setTitle(semesterDto.getSemesterName());
             itemData.setFields(attrs);
-            itemData.setBackgroundDrawable(context.getDrawable(R.drawable.bg_rounded_smoke));
+            itemData.setBackgroundDrawable(context.getDrawable(R.drawable.bg_rounded_corner_white_trong));
 
             itemDataList.add(itemData);
         }
