@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
@@ -29,6 +30,24 @@ import java.util.Date;
 import java.util.List;
 
 public class MyDialog extends Dialog {
+    public static MyDialog CreateComfirmDialog(Context context, ICallBack iCallBack, String title){
+        MyDialog myDialog = new MyDialog(context);
+        myDialog.setTitle(title);
+
+        myDialog.binding.save.setText("Comfirm");
+        myDialog.binding.cancle.setText("Cancle");
+
+        myDialog.onSave((Object... objs) -> {
+            iCallBack.action(myDialog);
+            myDialog.cancel();
+        });
+
+        myDialog.onCancle(object -> {
+            myDialog.cancel();
+        });
+
+        return  myDialog;
+    }
     public static MyDialog CreateFindBillByIdDialog(Context context, ICallBack onDataValid){
         MyDialog myDialog = new MyDialog(context);
 

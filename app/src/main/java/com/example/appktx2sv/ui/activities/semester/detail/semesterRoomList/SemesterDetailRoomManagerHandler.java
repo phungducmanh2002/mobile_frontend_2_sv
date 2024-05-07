@@ -15,6 +15,7 @@ import com.example.appktx2sv.net.services.IRegisService;
 import com.example.appktx2sv.net.services.IRoomCollectionService;
 import com.example.appktx2sv.net.services.ISemesterService;
 import com.example.appktx2sv.ui.activities.room.detail.ActivityRoomDetail;
+import com.example.appktx2sv.ui.dialog.MyDialog;
 import com.example.appktx2sv.ui.item.ItemManyAction;
 
 import java.util.ArrayList;
@@ -67,8 +68,6 @@ public class SemesterDetailRoomManagerHandler {
         itemActionList.add(CreateItemActionDetail(idSemester, roomDto.getId()));
 
         Map<String, String> attrs = new HashMap<>();
-        attrs.put("Gender: ", roomDto.getRoomGender() == 0 ? "Male" : "Female");
-        attrs.put("Status: ", roomDto.getRoomStatus() == 0 ? "Active" : "Disable");
         attrs.put("Slot: ", roomDto.getSlot().toString());
         attrs.put("Slot use: ", roomDto.getSlotUse().toString());
 
@@ -87,28 +86,33 @@ public class SemesterDetailRoomManagerHandler {
                 .textColor(view.getColor(R.color.white))
                 .storedData(idRoom)
                 .callBack(objects -> {
-                    Integer idUser = AppKtx.userDto.getId();
-                    CreateRegisDto createRegisDto = new CreateRegisDto();
-                    createRegisDto.setIdUser(idUser);
-                    createRegisDto.setIdSemester(idSemester);
-                    createRegisDto.setIdRoom(idRoom);
 
-                    regisService.createRegis(createRegisDto).enqueue(new Callback<Object>() {
-                        @Override
-                        public void onResponse(Call<Object> call, Response<Object> response) {
-                            if(response.isSuccessful()){
-                                view.onResume();
+                    MyDialog comfirmDialog = MyDialog.CreateComfirmDialog(view, object -> {
+                        Integer idUser = AppKtx.userDto.getId();
+                        CreateRegisDto createRegisDto = new CreateRegisDto();
+                        createRegisDto.setIdUser(idUser);
+                        createRegisDto.setIdSemester(idSemester);
+                        createRegisDto.setIdRoom(idRoom);
+
+                        regisService.createRegis(createRegisDto).enqueue(new Callback<Object>() {
+                            @Override
+                            public void onResponse(Call<Object> call, Response<Object> response) {
+                                if(response.isSuccessful()){
+                                    view.onResume();
+                                }
+                                else{
+                                    Toast.makeText(view, "Không thể đăng kí phòng nữa", Toast.LENGTH_SHORT).show();
+                                }
                             }
-                            else{
-                                Toast.makeText(view, "Không thể đăng kí phòng nữa", Toast.LENGTH_SHORT).show();
+
+                            @Override
+                            public void onFailure(Call<Object> call, Throwable t) {
+
                             }
-                        }
+                        });
+                    }, "COMFIRM REGISTER");
 
-                        @Override
-                        public void onFailure(Call<Object> call, Throwable t) {
-
-                        }
-                    });
+                    comfirmDialog.show();
 
                 })
                 .build();
