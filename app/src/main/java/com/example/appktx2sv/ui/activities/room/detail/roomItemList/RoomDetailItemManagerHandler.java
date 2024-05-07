@@ -44,6 +44,7 @@ public class RoomDetailItemManagerHandler {
                         itemManyAction.setItemDataManyAction(ItemAdded2ItemDataManyAction(itemAddedDto, idRoom));
 
                         view.binding.myListView.addChildren(itemManyAction);
+
                     }
                 }
                 else{

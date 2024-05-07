@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:id="@+id/main"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
 
+
+    >
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_trong"
+    />
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bg_rounded_corner_white_trong"
     android:layout_margin="20dp"
+    android:padding="20dp"
     >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quạt"
         android:textSize="24dp"
+        android:textColor="@color/blue_trong"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"
         android:id="@+id/roomName"
@@ -72,7 +81,7 @@
             android:text="Item manager"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:background="@drawable/bg_rounded_orange"
+            android:background="@drawable/bg_rounded_blue_trong"
             android:textColor="@color/white"
             android:id="@+id/itemManager"
             android:layout_alignParentRight="true"
@@ -83,6 +92,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="20dp"
+    android:background="@drawable/bg_rounded_corner_white_trong"
     >
     <com.example.appktx2sv.ui.view.MyImageListView
         android:layout_width="match_parent"
@@ -102,4 +112,4 @@
 
 </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

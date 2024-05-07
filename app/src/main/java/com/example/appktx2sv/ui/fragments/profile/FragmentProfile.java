@@ -1,6 +1,8 @@
 package com.example.appktx2sv.ui.fragments.profile;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import com.example.appktx2sv.data.dto.RoleDto;
 import com.example.appktx2sv.databinding.FragmentProfileBinding;
 import com.example.appktx2sv.net.RetrofitClient;
 import com.example.appktx2sv.net.services.IProfileService;
+import com.example.appktx2sv.ui.activities.home.ActivityHome;
 import com.example.appktx2sv.ui.activities.login.ActivityLogin;
 import com.example.appktx2sv.ui.activities.profile.editUser.ActivityEditUser;
 import com.github.dhaval2404.imagepicker.ImagePicker;
@@ -79,6 +82,8 @@ public class FragmentProfile  extends Fragment {
         getAvatar();
     }
     public void onSelectAvatarResponse(byte[] imgData){
+        byte[] imgCopy = imgData.clone();
+
         RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), imgData);
         MultipartBody.Part body = MultipartBody.Part.createFormData("image", "newavatar.image", requestBody);
 
@@ -90,7 +95,8 @@ public class FragmentProfile  extends Fragment {
 //                        Toast.makeText(getActivity(), response.body().toString(), Toast.LENGTH_LONG).show();
                         Integer idAvatarNew = response.body().getIdResource();
                         AppKtx.userDto.setIdResource(idAvatarNew);
-                        setAvatarData(imgData);
+
+//                        setAvatarData(imgCopy);
                     }
                     else{
                         Toast.makeText(getActivity(), "Goi api that bai", Toast.LENGTH_LONG).show();
@@ -108,13 +114,13 @@ public class FragmentProfile  extends Fragment {
         }
     }
     private void setAvatarData(byte[] data){
-//        try{
-//            Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
-//            binding.avatar.setImageBitmap(bitmap);
-//        }
-//        catch (Exception e){
-//            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-//        }
+        try{
+            Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+            binding.avatar.setImageBitmap(bitmap);
+        }
+        catch (Exception e){
+            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
     public void getAvatar(){
         if(AppKtx.userDto.getIdResource() == null){

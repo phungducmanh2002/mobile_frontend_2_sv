@@ -209,7 +209,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="17dp"
-                    android:text="Cập nhật thông tin"
+                    android:text="Update Information"
                     android:textColor="@color/blue"
                     />
             </LinearLayout>
@@ -218,11 +218,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:text="Đăng xuất"
-                android:background="@drawable/bg_rounded_red"
+                android:text="Logout"
+                android:background="@drawable/bg_rounded_blue_trong"
                 android:textColor="@color/white"
                 android:layout_marginTop="40dp"
                 android:layout_gravity="right"
+
                 android:id="@+id/logout"
                 />
 

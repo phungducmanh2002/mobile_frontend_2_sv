@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.appktx2sv.R;
 import com.example.appktx2sv.data.model.itemCommon.ItemAction;
 import com.example.appktx2sv.data.model.itemCommon.ItemData;
 import com.example.appktx2sv.data.model.itemCommon.ItemDataManyAction;
@@ -49,9 +50,11 @@ public class ItemManyAction extends ItemCommon {
                     LayoutParams.WRAP_CONTENT
             );
             layoutParams.setMargins(30,30,30,30);
+
         }
 
         binding.wrapper.setOrientation(VERTICAL);
+
         if(this.itemDataManyAction == null){
             return;
         }

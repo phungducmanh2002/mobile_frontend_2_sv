@@ -1,43 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/main"
     android:layout_height="match_parent"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="20dp"
-    >
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quạt"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/itemName"
-        />
-    <com.example.appktx2sv.ui.item.ItemField
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:fieldLabel="Quantity: "
-        app:fieldValue="10"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/itemQuantity"
-        />
-
-    <com.example.appktx2sv.ui.item.ItemImage
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemImageActionIcon="@drawable/ic_pen"
-        android:layout_marginTop="20dp"
-        android:id="@+id/itemImage"
+        android:layout_height="match_parent"
+        android:background="@color/blue_trong"
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_rounded_corner_white_trong"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quạt"
+            android:textColor="@color/blue_trong"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/itemName"
+            />
+        <com.example.appktx2sv.ui.item.ItemField
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fieldLabel="Quantity: "
+            app:fieldValue="10"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/itemQuantity"
+            />
+
+        <com.example.appktx2sv.ui.item.ItemImage
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemImageActionIcon="@drawable/ic_pen"
+            android:layout_marginTop="20dp"
+            android:id="@+id/itemImage"
+            />
+    </LinearLayout>
+
 
 <!--    <ImageView-->
 <!--        android:layout_width="30dp"-->
@@ -48,6 +57,6 @@
 <!--        android:layout_marginTop="20dp"-->
 <!--        />-->
 
-</LinearLayout>
 
-</LinearLayout>
+
+</RelativeLayout>

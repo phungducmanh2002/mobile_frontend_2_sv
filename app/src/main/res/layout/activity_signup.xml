@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -7,7 +7,11 @@
     android:id="@+id/main"
 
     >
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_trong"
+        />
 
 
     <LinearLayout
@@ -15,6 +19,8 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_rounded_white_trong"
         >
         <ScrollView
             android:layout_width="match_parent"
@@ -122,27 +128,29 @@
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_rounded_red"
-                        android:text="Đăng kí"
+                        android:background="@drawable/bg_rounded_blue_trong"
+                        android:text="Sigup"
                         android:textColor="@color/white"
                         android:layout_marginTop="30dp"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:id="@+id/btnRegistation"
                         />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sigin"
+                        android:textColor="@color/blue"
+                        android:layout_margin="20dp"
+                        android:layout_gravity="right"
+                        android:id="@+id/login"
+                        android:textStyle="italic"
+                        />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đăng nhập"
-        android:textColor="@color/blue"
-        android:layout_margin="20dp"
-        android:layout_gravity="right"
-        android:id="@+id/login"
-        />
 
-</LinearLayout>
+
+</RelativeLayout>

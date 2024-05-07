@@ -53,7 +53,7 @@ public class ActivityHome extends AppCompatActivity implements IPDM.View {
         setEvent();
     }
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         if(fragmentNumber == 0){
             replaceFragment(FragmentHome.newInstance());

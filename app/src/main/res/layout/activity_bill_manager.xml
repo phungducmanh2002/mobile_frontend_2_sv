@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:padding="20dp"
         android:background="@drawable/bg_rounded_white_trong"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         >
 
         <LinearLayout

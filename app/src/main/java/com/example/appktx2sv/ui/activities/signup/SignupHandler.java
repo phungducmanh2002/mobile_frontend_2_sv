@@ -1,6 +1,7 @@
 package com.example.appktx2sv.ui.activities.signup;
 
 import android.content.Intent;
+import android.widget.Toast;
 
 import com.example.appktx2sv.data.dto.UserDto;
 import com.example.appktx2sv.interfaces.IPDM;
@@ -32,6 +33,9 @@ public class SignupHandler implements IPDM.Handler {
                     loginIntent.putExtra("password", userDto.getPassword());
                     view.startActivity(loginIntent);
                     view.finish();
+                }
+                else{
+                    Toast.makeText(view, "Unsuccess Sigup", Toast.LENGTH_SHORT).show();
                 }
             }
 
