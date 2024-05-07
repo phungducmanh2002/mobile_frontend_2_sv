@@ -1,87 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
-    android:background="@drawable/img_bill"
-    >
 
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/tvGround"
+        android:background="@drawable/bg_rounded_corner_blue_trong"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DOMITORY STUDENT"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/white"
+        />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvGround"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="-80dp"
+        android:id="@+id/lnlFunc"
         >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DOMITORY STUDENT"
-            android:layout_marginBottom="50dp"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginTop="40dp"
-            />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="100dp"
-                android:background="@drawable/bg_rounded_red"
-                android:padding="10dp"
-                android:layout_margin="10dp"
-                android:gravity="center_horizontal|center_vertical"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                android:gravity="center"
                 android:id="@+id/semester"
+                android:orientation="vertical"
+                android:background="@drawable/bg_rounded_white_trong"
+                android:elevation="12dp"
                 >
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/semester"
+                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SEMESTER"
                     android:textSize="20dp"
+                    android:textColor="@color/blue_trong"
                     android:textStyle="bold"
-                    android:textColor="@color/white"
                     />
             </LinearLayout>
 
 
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="100dp"
-                android:background="@drawable/bg_rounded_green"
-                android:padding="10dp"
-                android:layout_margin="10dp"
-                android:gravity="center_horizontal|center_vertical"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                android:gravity="center"
                 android:id="@+id/bill"
+                android:orientation="vertical"
+                android:background="@drawable/bg_rounded_white_trong"
+                android:elevation="12dp"
                 >
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/bill_invoice_payment_receipt_billing_svgrepo_com"
+                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BILL"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:textColor="@color/white"
+                    android:textColor="@color/blue_trong"
                     />
             </LinearLayout>
 
-
-        </LinearLayout>
-
-
     </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lnlFunc"
+        android:src="@drawable/homesv"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:elevation="12dp"
+        android:background="@drawable/bg_rounded_blue_trong"
+        />
 
-</FrameLayout>
+</RelativeLayout>
